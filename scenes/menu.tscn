@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/items/ItemDB.gd" type="Script" id=2]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -43,6 +44,9 @@ margin_bottom = 68.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ItemDB" type="Node" parent="."]
+script = ExtResource( 2 )
 [connection signal="pressed" from="Panel/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="Panel/Create" to="." method="_on_Create_pressed"]
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_LineEdit_text_changed"]
