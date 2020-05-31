@@ -22,6 +22,7 @@ run/main_scene="res://scenes/menu.tscn"
 
 network="*res://globals/network.gd"
 simple_state_machine="*res://globals/simple_state_machine.gd"
+weapons_map="*res://entities/weapons/weapons_map.gd"
 
 [display]
 

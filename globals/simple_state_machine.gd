@@ -12,37 +12,49 @@ var state = STATE_IDLE
 func _ready():
 	pass # Replace with function body.
 
-remote func check_state(motion, sprite, entitie_data):
+remote func check_state(motion, player, entitie_data):
 	if motion == Vector2.ZERO:
 		state = STATE_IDLE
 	if motion != Vector2.ZERO:
 		state = STATE_RUNNING
-	if entitie_data.attacking:
+	if entitie_data.actions.attacking:
 		state = STATE_ATTACKING
-	if entitie_data.hurt:
+	if entitie_data.actions.hurt:
 		state = STATE_HURT
-
-	state_machine(sprite, entitie_data)
+	set_weapon(player, entitie_data)
+	state_machine(player, entitie_data)
 	
-func state_machine(sprite, entitie_data):
+func state_machine(player, entitie_data):
 	match state:
 		STATE_IDLE:
-			idle(sprite)
+			idle(player)
 		STATE_RUNNING:
-			running(sprite)
+			running(player)
 		STATE_ATTACKING:
-			attacking(sprite, entitie_data)
+			attacking(player, entitie_data)
 		STATE_HURT:
-			hit(sprite)
+			hit(player)
 
-func attacking(sprite, entitie_data):
-	sprite.play("attacking")
+func attacking(player, entitie_data):
+	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
+	var weapon_sprite = get_tree().get_root().get_node(player.get_path()).get_node("weapon/animation_player")
+	weapon_sprite.play("attack")
 
-func idle(sprite):
-	sprite.play("idle")
+func idle(player):
+	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
+	var weapon_sprite = get_tree().get_root().get_node(player.get_path()).get_node("weapon/animation_player")
+	player_sprite.play("idle")
+	weapon_sprite.play("idle")
 
-func running(sprite):
-	sprite.play("running")
+func running(player):
+	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
+	player_sprite.play("running")
 
-func hit(sprite):
-	sprite.play("hurt")
+func hit(player):
+	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
+#	player_sprite.play("hurt")
+
+func set_weapon(player, entitie_data):
+	var weapon = get_tree().get_root().get_node(player.get_path()).get_node("weapon")
+	weapon.weapon_texture = entitie_data.equipment.weapon
+	print(player.name, " ", weapon.weapon_texture)
