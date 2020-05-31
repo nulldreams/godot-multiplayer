@@ -1,0 +1,167 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_0.png" type="Texture" id=1]
+[ext_resource path="res://entities/player/player.gd" type="Script" id=2]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_1.png" type="Texture" id=3]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_2.png" type="Texture" id=4]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_3.png" type="Texture" id=5]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_4.png" type="Texture" id=6]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_5.png" type="Texture" id=7]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_6.png" type="Texture" id=8]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Idle/HeroKnight_Idle_7.png" type="Texture" id=9]
+[ext_resource path="res://entities/player/assets/shadow/shadow_02.png" type="Texture" id=10]
+[ext_resource path="res://entities/player/assets/shadow/shadow_01.png" type="Texture" id=11]
+[ext_resource path="res://entities/player/assets/shadow/shadow_03.png" type="Texture" id=12]
+[ext_resource path="res://entities/player/assets/shadow/shadow_04.png" type="Texture" id=13]
+[ext_resource path="res://assets/fonts/equipaments/EquipmentPro.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_0.png" type="Texture" id=15]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_1.png" type="Texture" id=16]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_2.png" type="Texture" id=17]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_3.png" type="Texture" id=18]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_8.png" type="Texture" id=19]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_5.png" type="Texture" id=20]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_4.png" type="Texture" id=21]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_7.png" type="Texture" id=22]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_5.png" type="Texture" id=23]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_0.png" type="Texture" id=24]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_6.png" type="Texture" id=25]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_9.png" type="Texture" id=26]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_2.png" type="Texture" id=27]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_4.png" type="Texture" id=28]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack1/HeroKnight_Attack1_1.png" type="Texture" id=29]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Run/HeroKnight_Run_3.png" type="Texture" id=30]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_2.png" type="Texture" id=31]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_6.png" type="Texture" id=32]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_2.png" type="Texture" id=33]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_7.png" type="Texture" id=34]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_1.png" type="Texture" id=35]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_0.png" type="Texture" id=36]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_1.png" type="Texture" id=37]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_3.png" type="Texture" id=38]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_3.png" type="Texture" id=39]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_0.png" type="Texture" id=40]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_5.png" type="Texture" id=41]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_4.png" type="Texture" id=42]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack3/HeroKnight_Attack3_5.png" type="Texture" id=43]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Attack2/HeroKnight_Attack2_4.png" type="Texture" id=44]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Hurt/HeroKnight_Hurt_0.png" type="Texture" id=45]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Hurt/HeroKnight_Hurt_2.png" type="Texture" id=46]
+[ext_resource path="res://entities/player/assets/Hero Knight/HeroKnight/Hurt/HeroKnight_Hurt_1.png" type="Texture" id=47]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ), ExtResource( 28 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 47 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 30 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "running",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 44 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "attacking_combo_1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 32 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "attacking_combo_2",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.8768, 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+outline_size = 1
+outline_color = Color( 0.337255, 0.0156863, 0.0156863, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+height = 10.0
+
+[node name="Node2D" type="KinematicBody2D" groups=[
+"players",
+]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, 7 )
+scale = Vector2( 0.754545, 0.754545 )
+frames = SubResource( 6 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="Shadow" type="AnimatedSprite" parent="."]
+position = Vector2( -2, 23 )
+scale = Vector2( 1.83333, 1.83333 )
+frames = SubResource( 2 )
+frame = 3
+playing = true
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2( -3, 16 )
+shape = SubResource( 3 )
+
+[node name="Name" type="Label" parent="."]
+margin_left = -7.0
+margin_top = -27.0
+margin_right = 11.0
+margin_bottom = -13.0
+custom_fonts/font = SubResource( 4 )
+text = "Igor"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="AttackDuration" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="player_sword" type="Area2D" parent="." groups=[
+"player_sword",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_sword"]
+polygon = PoolVector2Array( -11, -10, 8, -9, 23, -2, 27, 3, 27, 9, 22, 15, 16, 19, 14, 21, 25, 18, 33, 12, 35, 9, 34, 3, 30, -2, 21, -7, 8, -10 )
+disabled = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+monitorable = false
+
+[node name="col" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( -3, 13 )
+shape = SubResource( 5 )
+
+[node name="HurtDuration" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="AttackDuration" to="." method="_on_AttackDuration_timeout"]
+[connection signal="body_entered" from="player_sword" to="." method="_on_player_sword_body_entered"]
+[connection signal="timeout" from="HurtDuration" to="." method="_on_HurtDuration_timeout"]
