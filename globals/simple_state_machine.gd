@@ -8,9 +8,8 @@ enum {
 }
 var state = STATE_IDLE
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 remote func check_state(motion, player, entitie_data):
 	if motion == Vector2.ZERO:
@@ -36,25 +35,23 @@ func state_machine(player, entitie_data):
 			hit(player)
 
 func attacking(player, entitie_data):
-	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
-	var weapon_sprite = get_tree().get_root().get_node(player.get_path()).get_node("weapon/animation_player")
-	weapon_sprite.play("attack")
+	change_animation(player, "attacking")
 
 func idle(player):
-	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
-	var weapon_sprite = get_tree().get_root().get_node(player.get_path()).get_node("weapon/animation_player")
-	player_sprite.play("idle")
-	weapon_sprite.play("idle")
+	change_animation(player, "idle")
 
 func running(player):
-	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
-	player_sprite.play("running")
+	change_animation(player, "running")
 
 func hit(player):
 	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
-#	player_sprite.play("hurt")
 
 func set_weapon(player, entitie_data):
 	var weapon = get_tree().get_root().get_node(player.get_path()).get_node("weapon")
 	weapon.weapon_texture = entitie_data.equipment.weapon
-	print(player.name, " ", weapon.weapon_texture)
+
+func change_animation(player, animation):
+	var player_sprite = get_tree().get_root().get_node(player.get_path()).get_node("Sprite")
+	player_sprite.play(animation)
+	var weapon_sprite = get_tree().get_root().get_node(player.get_path()).get_node("weapon/animation_player")
+	weapon_sprite.play(animation)

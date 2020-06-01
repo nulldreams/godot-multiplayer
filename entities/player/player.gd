@@ -64,7 +64,7 @@ func apply_movement(acceleration):
 	entitie_data.movement.motion = entitie_data.movement.motion.clamped(entitie_data.movement.max_speed)
 
 func _ready():
-	$weapon.weapon_owner = self.name
+	$weapon.weapon_owner = self
 
 func _physics_process(delta):
 	var axis = Vector2.ZERO
@@ -121,7 +121,7 @@ func _on_player_sword_body_entered(body):
 		return
 	if body.name != name:
 		var knockbak_direction = (global_position - body.global_position).normalized()
-		var knockback_range = knockbak_direction * 5000
+		var knockback_range = knockbak_direction * 20000
 		body.rpc("hit", knockback_range * Vector2(-1, -1))
 
 sync func hit(knockback):
