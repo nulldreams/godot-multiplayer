@@ -51,7 +51,7 @@ outline_color = Color( 0.337255, 0.0156863, 0.0156863, 1 )
 font_data = ExtResource( 14 )
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 13.2119
+radius = 9.04194
 
 [node name="player" type="KinematicBody2D" groups=[
 "players",
@@ -66,7 +66,7 @@ position = Vector2( -5.96046e-08, -2 )
 scale = Vector2( 0.754545, 0.754545 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 5
 playing = true
 
 [node name="Shadow" type="AnimatedSprite" parent="."]
@@ -82,6 +82,7 @@ position = Vector2( -0.00356293, -0.00527954 )
 shape = SubResource( 3 )
 
 [node name="Name" type="Label" parent="."]
+visible = false
 margin_left = -6.72932
 margin_top = -26.6325
 margin_right = 11.2707
@@ -107,10 +108,11 @@ wait_time = 0.5
 wait_time = 0.5
 
 [node name="PickupRange" type="Area2D" parent="."]
-visible = false
+position = Vector2( 0.0897446, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
 shape = SubResource( 5 )
 [connection signal="timeout" from="AttackDuration" to="." method="_on_AttackDuration_timeout"]
 [connection signal="timeout" from="HurtDuration" to="." method="_on_HurtDuration_timeout"]
-[connection signal="area_entered" from="PickupRange" to="." method="_on_PickupRange_area_entered"]
+[connection signal="body_entered" from="PickupRange" to="." method="_on_PickupRange_body_entered"]
+[connection signal="body_exited" from="PickupRange" to="." method="_on_PickupRange_body_exited"]

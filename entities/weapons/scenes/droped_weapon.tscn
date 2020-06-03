@@ -1,9 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/weapons/scripts/droped_weapon.gd" type="Script" id=1]
 [ext_resource path="res://entities/weapons/assets/axes/axe.png" type="Texture" id=2]
+[ext_resource path="res://entities/ui/popup/popup2.png" type="Texture" id=3]
+[ext_resource path="res://entities/ui/popup/popup1.png" type="Texture" id=4]
+[ext_resource path="res://assets/effects/foot-dust.png" type="Texture" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 7, 1 )
+flag_disable_z = true
+spread = 100.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_random = 1.0
+scale = 0.8
+scale_random = 0.64
 
 [node name="dropd_weapon" type="RigidBody2D" groups=[
 "droped_items",
@@ -15,12 +38,40 @@ script = ExtResource( 1 )
 weapon_name = "axe"
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.0944674, 0.0944688 )
+scale = Vector2( 0.777723, 0.777723 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -7.92018, 4.92971, -5.91467, 6.80987, 1.60597, -0.648104, 2.48338, 0.417321, 0.415203, 2.4855, 0.28986, 3.6136, 3.61148, 3.6136, 6.49439, 0.479993, 6.55706, -1.52551, 4.55156, -3.46835, 4.73957, -4.65911, 3.61148, -5.66187, 2.35804, -5.72454, 0.603222, -7.54203, -1.33961, -7.6047, -4.47321, -4.40843, -4.47321, -2.59094, -3.47046, -1.46284, -1.1516, -3.53102, -0.399532, -2.59094 )
+polygon = PoolVector2Array( -6.79208, 5.05503, -5.72665, 6.18312, 5.61697, -4.09508, 4.11284, -5.22318 )
 
-[node name="PickupRange" type="Area2D" parent="."]
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
-shape = SubResource( 1 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Popup"]
+position = Vector2( 18.8751, 8.72074 )
+scale = Vector2( 0.335977, 0.335977 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Dust" type="Particles2D" parent="."]
+position = Vector2( -0.263519, -0.284118 )
+rotation = -1.5708
+emitting = false
+amount = 6
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.2
+explosiveness = 0.65
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 5 )
+
+[node name="DustTimer" type="Timer" parent="."]
+wait_time = 0.6
+[connection signal="timeout" from="DustTimer" to="." method="_on_DustTimer_timeout"]

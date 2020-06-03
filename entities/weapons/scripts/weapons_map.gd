@@ -4,6 +4,6 @@ const default_sword = "res://assets/v1.1 dungeon crawler 16x16 pixel pack/heroes
 
 var weapon_list = {
 	"sword": default_sword,
-	"axe": default_sword,
+	"axe": "res://entities/weapons/assets/axes/axe.png",
 	"large_sword": default_sword
 }

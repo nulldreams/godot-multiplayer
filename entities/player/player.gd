@@ -1,6 +1,11 @@
 extends KinematicBody2D
 
 export var current_weapon = "sword"
+var can_interact = false
+var droped_item = {
+	"name": null,
+	"node": null
+}
 
 var movement = {
 	"motion": Vector2.ZERO,
@@ -102,19 +107,12 @@ func _input(event):
 	if event.is_action_pressed("attack"):
 		entitie_data.actions.attacking = true
 		$AttackDuration.start()
+	if event.is_action_pressed("interact") and can_interact and droped_item:
+		change_weapon(droped_item)
 
 func _on_AttackDuration_timeout():
 	if entitie_data.actions.attacking:
 		entitie_data.actions.attacking = false
-		
-		if current_weapon == "sword":
-			current_weapon = "axe"
-		elif current_weapon == "axe":
-			current_weapon = "large_sword"
-		elif current_weapon == "axe":
-			current_weapon = "large_sword"
-		elif current_weapon == "large_sword":
-			current_weapon = "sword"
 
 func _on_player_sword_body_entered(body):
 	if not is_network_master():
@@ -130,11 +128,24 @@ sync func hit(knockback):
 	$HurtDuration.start()
 	return true
 
+func change_weapon(weapon):
+	current_weapon = weapon.name
+	weapon.node.rpc("pickup")
+
 func _on_HurtDuration_timeout():
 	entitie_data.actions.hurt = false
 
-
-func _on_PickupRange_area_entered(area):
-	if not area.is_in_group("droped_items"):
+func _on_PickupRange_body_entered(body):
+	if not body.is_in_group("droped_items"):
 		return
-	print(area.get_path())
+	body.show_popup()
+	can_interact = true
+	droped_item.name = body.weapon_name
+	droped_item.node = body
+
+
+func _on_PickupRange_body_exited(body):
+	if not body.is_in_group("droped_items"):
+		return
+	can_interact = false
+	body.hide_popup()
