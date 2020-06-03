@@ -132,3 +132,9 @@ sync func hit(knockback):
 
 func _on_HurtDuration_timeout():
 	entitie_data.actions.hurt = false
+
+
+func _on_PickupRange_area_entered(area):
+	if not area.is_in_group("droped_items"):
+		return
+	print(area.get_path())

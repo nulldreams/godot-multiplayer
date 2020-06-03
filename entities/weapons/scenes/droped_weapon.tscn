@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/weapons/scripts/droped_weapon.gd" type="Script" id=1]
+[ext_resource path="res://entities/weapons/assets/axes/axe.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="dropd_weapon" type="RigidBody2D" groups=[
+"droped_items",
+]]
+gravity_scale = 0.0
+linear_damp = 50.0
+angular_damp = 30.0
+script = ExtResource( 1 )
+weapon_name = "axe"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -7.92018, 4.92971, -5.91467, 6.80987, 1.60597, -0.648104, 2.48338, 0.417321, 0.415203, 2.4855, 0.28986, 3.6136, 3.61148, 3.6136, 6.49439, 0.479993, 6.55706, -1.52551, 4.55156, -3.46835, 4.73957, -4.65911, 3.61148, -5.66187, 2.35804, -5.72454, 0.603222, -7.54203, -1.33961, -7.6047, -4.47321, -4.40843, -4.47321, -2.59094, -3.47046, -1.46284, -1.1516, -3.53102, -0.399532, -2.59094 )
+
+[node name="PickupRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource( 1 )
